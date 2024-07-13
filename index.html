@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claude Site Demo - Product/Software Integrations</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Load Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <!-- Load D3.js before other scripts -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="js/main.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -51,5 +52,8 @@
             </a>
         </div>
     </footer>
+
+    <!-- Load the main JavaScript file as a module after the DOM is ready -->
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>
