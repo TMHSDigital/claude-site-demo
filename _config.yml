@@ -1,0 +1,21 @@
+# _config.yml
+
+# Site settings
+title: Claude Site Demo
+description: A demo site for showcasing product/software integrations
+baseurl: "/claude-site-demo" # the subpath of your site, e.g. /blog
+url: "https://tmhsdigital.github.io" # Replace with your GitHub username
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
