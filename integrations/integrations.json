@@ -3,5 +3,10 @@
         "id": "hello-world",
         "name": "Hello World",
         "description": "A simple Hello World integration demo."
+    },
+    {
+        "id": "mind-map",
+        "name": "Mind Mapping Tool",
+        "description": "Create and visualize mind maps to organize your ideas."
     }
 ]

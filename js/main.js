@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const integrationDescription = document.getElementById('integration-description');
     const demoContent = document.getElementById('demo-content');
 
-    // Function to load available integrations
     async function loadIntegrations() {
         try {
             const response = await fetch('integrations/integrations.json');
@@ -29,21 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Function to load a specific integration
     async function loadIntegration(integration) {
         integrationTitle.textContent = integration.name;
         integrationDescription.textContent = integration.description;
 
         try {
             const module = await import(`./integrations/${integration.id}/demo.js`);
-            demoContent.innerHTML = ''; // Clear previous content
-            module.default(demoContent);
+            const demo = new module.default(demoContent);
+            await demo.init();
         } catch (error) {
             console.error('Error loading integration:', error);
             demoContent.innerHTML = '<p>Error loading integration. Please try again.</p>';
         }
     }
 
-    // Initial load of integrations
     loadIntegrations();
 });
