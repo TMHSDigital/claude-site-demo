@@ -1,0 +1,37 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node.js (in case you decide to use npm packages later)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Jekyll (if you decide to use Jekyll for GitHub Pages)
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Personal configuration files (add more as needed)
+*.env
+
+# Build output directory (if you add a build process later)
+/dist/
+/build/
