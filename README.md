@@ -21,6 +21,7 @@ Claude Site Demo is a dynamic, modular website hosted on GitHub Pages, designed 
 - **Responsive Design**: Ensures a seamless experience across various devices and screen sizes.
 - **GitHub Pages Hosting**: Leverages free and easy deployment through GitHub Pages.
 - **Expandable Architecture**: Designed to accommodate future growth and additional integrations.
+- **Mind Mapping Tool**: Interactive tool for creating and visualizing mind maps.
 
 ## Project Structure
 
@@ -28,18 +29,17 @@ Claude Site Demo is a dynamic, modular website hosted on GitHub Pages, designed 
 claude-site-demo/
 ├── index.html                 # Main entry point
 ├── css/
-│   └── styles.css             # Global styles
+│   ├── styles.css             # Global styles
+│   └── mind-map.css           # Styles specific to mind mapping tool
 ├── js/
 │   ├── main.js                # Main site functionality
 │   └── integration-loader.js  # Handles dynamic loading of integrations
 ├── integrations/
-│   ├── integration1/
-│   │   ├── demo.js            # Demo code for integration 1
-│   │   └── config.json        # Configuration for integration 1
-│   ├── integration2/
-│   │   ├── demo.js
-│   │   └── config.json
-│   └── ...
+│   ├── integrations.json      # Configuration for available integrations
+│   ├── hello-world/
+│   │   └── demo.js            # Demo code for Hello World integration
+│   └── mind-map/
+│       └── demo.js            # Demo code for Mind Mapping integration
 ├── assets/
 │   ├── images/
 │   └── fonts/
@@ -71,8 +71,17 @@ claude-site-demo/
 
 1. Create a new folder in the `integrations/` directory with your integration name.
 2. Add a `demo.js` file in this new folder with your integration's demo code.
-3. Create a `config.json` file in the same folder with metadata about your integration.
-4. Update the navigation in `index.html` to include your new integration.
+3. Update the `integrations.json` file to include your new integration.
+
+### Running Locally
+
+To test the site locally:
+
+1. Install a local server if you don't have one. For example, using Python:
+   ```
+   python -m http.server 8000
+   ```
+2. Open a browser and navigate to `http://localhost:8000`
 
 ### Deployment
 
@@ -81,6 +90,23 @@ The site is automatically deployed to GitHub Pages when changes are pushed to th
 1. Go to your repository on GitHub.
 2. Navigate to Settings > Pages.
 3. Ensure the source is set to deploy from the main branch.
+
+## Current Integrations
+
+1. **Hello World**: A simple demonstration integration.
+2. **Mind Mapping Tool**: Create and visualize mind maps to organize your ideas.
+
+## Upcoming Features
+
+We're excited to announce upcoming productivity tool integrations:
+
+1. **To-Do List Application**: A robust task management system with priority setting and categorization.
+2. **Pomodoro Timer**: Boost productivity with customizable work and break intervals.
+3. **Note-Taking App**: Organize thoughts and information with rich text editing and tagging.
+4. **Time Tracker**: Monitor and analyze time usage across different activities and projects.
+5. **Habit Tracker**: Build and maintain positive habits with streak tracking and progress visualization.
+
+Stay tuned for these exciting additions to our Claude Site Demo!
 
 ## Contributing
 
@@ -99,6 +125,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Thanks to GitHub for providing GitHub Pages hosting.
+- D3.js library for powering our Mind Mapping tool.
 - Inspired by the need for flexible, easy-to-update product demos.
 
 ## Contact
