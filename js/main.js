@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const integrationDescription = document.getElementById('integration-description');
     const demoContent = document.getElementById('demo-content');
 
+    let currentIntegration = null;
+
     async function loadIntegrations() {
         try {
             const response = await fetch('integrations/integrations.json');
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } catch (error) {
             console.error('Error loading integrations:', error);
+            integrationNav.innerHTML = '<li>Error loading integrations</li>';
         }
     }
 
@@ -32,10 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
         integrationTitle.textContent = integration.name;
         integrationDescription.textContent = integration.description;
 
+        // Unload current integration if exists
+        if (currentIntegration && currentIntegration.unload) {
+            await currentIntegration.unload();
+        }
+
+        demoContent.innerHTML = ''; // Clear previous content
+
         try {
             const module = await import(`./integrations/${integration.id}/demo.js`);
-            const demo = new module.default(demoContent);
-            await demo.init();
+            currentIntegration = new module.default(demoContent);
+            await currentIntegration.init();
         } catch (error) {
             console.error('Error loading integration:', error);
             demoContent.innerHTML = '<p>Error loading integration. Please try again.</p>';
